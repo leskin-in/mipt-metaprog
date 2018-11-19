@@ -12,3 +12,14 @@ add_executable(
         hw_1/Proxy.h
         hw_1/main.cpp
 )
+
+add_executable(
+        hw_2
+        hw_2/main.cpp
+        hw_2/TypeList.h
+        hw_2/TypeNull.h
+        hw_2/GenScatterF.h
+        hw_2/Fibonacci.h
+        hw_2/GenLinearF.h
+        hw_2/InheritanceContainer.h
+)
