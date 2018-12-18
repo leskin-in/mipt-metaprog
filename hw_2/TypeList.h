@@ -1,6 +1,8 @@
 #ifndef MIPT_METAPROG_TYPELIST_H
 #define MIPT_METAPROG_TYPELIST_H
 
+#include <glob.h>
+
 #include "TypeNull.h"
 
 
@@ -65,6 +67,22 @@ struct TL_Slice<TypeList<H, T>, 0, TypeDefault> {
 template <class H, class T, unsigned int index, typename TypeDefault>
 struct TL_Slice<TypeList<H, T>, index, TypeDefault> {
     typedef typename TL_Slice<T, index - 1, TypeDefault>::Result Result;
+};
+
+
+/* sizeof() of all elements in TypeList */
+
+template <class TypeList>
+struct TL_Sizeof;
+
+template <class H, class T>
+struct TL_Sizeof<TypeList<H, T> > {
+    static const size_t result = sizeof(H) + TL_Sizeof<T>::result;
+};
+
+template <>
+struct TL_Sizeof<TypeNull> {
+    static const size_t result = 0;
 };
 
 

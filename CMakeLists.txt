@@ -3,8 +3,7 @@ project(mipt_metaprog)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(
-        hw_1
+add_executable(hw_1
         hw_1/Command.h
         hw_1/Strategy.h
         hw_1/hardcoded_settings.h
@@ -13,8 +12,7 @@ add_executable(
         hw_1/main.cpp
 )
 
-add_executable(
-        hw_2
+add_executable(hw_2
         hw_2/main.cpp
         hw_2/TypeList.h
         hw_2/TypeNull.h
@@ -22,4 +20,13 @@ add_executable(
         hw_2/Fibonacci.h
         hw_2/GenLinearF.h
         hw_2/InheritanceContainer.h
+)
+
+file(GLOB hw_3_files
+        "hw_3/*.cpp"
+        "hw_3/*.h"
+        hw_2/TypeList.h
+)
+add_executable(hw_3
+        ${hw_3_files}
 )
